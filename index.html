@@ -22,35 +22,36 @@
   }
   body { font-family: var(--sans); background: var(--cream); color: var(--ink); min-height: 100vh; padding: 2rem 1rem 4rem; }
   .page { max-width: 740px; margin: 0 auto; }
+
   .header { text-align: center; padding: 2.5rem 0 2rem; border-bottom: 1px solid var(--border); margin-bottom: 2rem; }
   .header-logo { font-family: var(--serif); font-size: 13px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 0.5rem; }
   .header h1 { font-family: var(--serif); font-size: 2.2rem; font-weight: 400; }
+  .header p { font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
 
-  .upload-zone { border: 1.5px dashed var(--ink-faint); border-radius: var(--radius); padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: white; margin-bottom: 1rem; }
+  .field-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 5px; }
+  .field-group { margin-bottom: 1.25rem; }
+
+  .upload-zone { border: 1.5px dashed var(--ink-faint); border-radius: var(--radius); padding: 2.5rem 1.5rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; background: white; }
   .upload-zone:hover, .upload-zone.drag-over { border-color: var(--accent); background: var(--accent-light); }
   .upload-zone p { font-size: 14px; color: var(--ink-muted); }
   .upload-zone strong { color: var(--ink); font-weight: 500; }
   #file-input { display: none; }
+  .upload-icon { width: 40px; height: 40px; margin: 0 auto 0.75rem; opacity: 0.3; }
 
-  .field-label { font-size: 12px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 5px; }
-  .field-group { margin-bottom: 1rem; }
-  .api-row { display: flex; gap: 8px; }
-  .api-row input { flex: 1; font-family: var(--sans); font-size: 13px; padding: 9px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: white; color: var(--ink); outline: none; }
-  .api-row input:focus { border-color: var(--accent); }
   input[type="text"] { font-family: var(--sans); font-size: 13px; padding: 9px 14px; border: 1px solid var(--border); border-radius: var(--radius); background: white; color: var(--ink); outline: none; width: 100%; }
+  input[type="text"]:focus { border-color: var(--accent); }
   input::placeholder { color: var(--ink-faint); }
+
+  .divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
 
   .btn { font-family: var(--sans); font-size: 13px; font-weight: 500; padding: 9px 20px; border-radius: var(--radius); border: 1px solid var(--border); background: white; color: var(--ink); cursor: pointer; transition: background 0.15s; white-space: nowrap; }
   .btn:hover { background: #EDEBE6; }
-  .btn-primary { background: var(--ink); color: var(--cream); border-color: var(--ink); width: 100%; padding: 12px; font-size: 14px; margin-bottom: 1rem; }
+  .btn-primary { background: var(--ink); color: var(--cream); border-color: var(--ink); width: 100%; padding: 13px; font-size: 14px; margin-bottom: 1rem; }
   .btn-primary:hover { background: #333; }
   .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 
   .status { font-size: 13px; color: var(--ink-muted); text-align: center; margin-bottom: 1rem; min-height: 18px; }
   .status.error { color: var(--accent); font-weight: 500; }
-
-  .debug-box { display: none; background: #fff8f0; border: 1px solid #f0d0b0; border-radius: var(--radius); padding: 12px 14px; font-size: 12px; color: #7a3010; font-family: monospace; margin-bottom: 1rem; white-space: pre-wrap; word-break: break-all; }
-  .debug-box.visible { display: block; }
 
   .output-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; display: none; }
   .output-card.visible { display: block; }
@@ -58,15 +59,11 @@
   .output-toolbar span { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-muted); }
   .copy-actions { display: flex; gap: 8px; align-items: center; }
   .copy-confirm { font-size: 12px; color: #3A6B4A; opacity: 0; transition: opacity 0.3s; }
-  #email-output { font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.75; color: var(--ink); padding: 1.5rem; white-space: pre-wrap; word-break: break-word; min-height: 100px; }
+  #email-output { font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; color: var(--ink); padding: 1.5rem; white-space: pre-wrap; word-break: break-word; }
 
-  .divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
   .info-note { font-size: 12px; color: var(--ink-muted); text-align: center; margin-top: 1.5rem; line-height: 1.6; }
-  .info-note a { color: var(--accent); text-decoration: none; }
 
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .spinner { display: inline-block; width: 13px; height: 13px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 6px; }
-  .upload-icon { width: 40px; height: 40px; margin: 0 auto 0.75rem; opacity: 0.3; }
+  .badge { display: inline-block; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; background: #E6F0E9; color: #3A6B4A; margin-left: 8px; vertical-align: middle; }
 </style>
 </head>
 <body>
@@ -74,19 +71,12 @@
 
   <div class="header">
     <div class="header-logo">United Porte</div>
-    <h1>Door Order Summary</h1>
+    <h1>Door Order Summary <span class="badge">No API key needed</span></h1>
+    <p>Upload any United Porte invoice PDF and get a ready-to-send customer email instantly.</p>
   </div>
 
   <div class="field-group">
-    <div class="field-label">Anthropic API Key</div>
-    <div class="api-row">
-      <input type="password" id="api-key" placeholder="sk-ant-..." autocomplete="off" oninput="checkReady()" />
-      <button class="btn" onclick="toggleKey(this)">Show</button>
-    </div>
-  </div>
-
-  <div class="field-group">
-    <div class="field-label">Customer First Name (optional — overrides auto-detect)</div>
+    <div class="field-label">Customer First Name <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional — overrides auto-detect)</span></div>
     <input type="text" id="customer-name" placeholder="Auto-detected from invoice" />
   </div>
 
@@ -110,7 +100,6 @@
   </button>
 
   <div class="status" id="status"></div>
-  <div class="debug-box" id="debug-box"></div>
 
   <div class="output-card" id="output-card">
     <div class="output-toolbar">
@@ -123,10 +112,7 @@
     <div id="email-output"></div>
   </div>
 
-  <p class="info-note">
-    Your API key is used only in your browser and never stored or sent anywhere except directly to Anthropic.<br/>
-    Get a key at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>
-  </p>
+  <p class="info-note">Everything runs locally in your browser. No data is sent anywhere.</p>
 
 </div>
 
@@ -137,54 +123,35 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs
 var pdfText = '';
 var emailText = '';
 
-function toggleKey(btn) {
-  var input = document.getElementById('api-key');
-  if (input.type === 'password') { input.type = 'text'; btn.textContent = 'Hide'; }
-  else { input.type = 'password'; btn.textContent = 'Show'; }
-}
-
+// ─── Drag & drop ───────────────────────────────────────────
 var zone = document.getElementById('upload-zone');
 zone.addEventListener('dragover', function(e) { e.preventDefault(); zone.classList.add('drag-over'); });
 zone.addEventListener('dragleave', function() { zone.classList.remove('drag-over'); });
 zone.addEventListener('drop', function(e) {
-  e.preventDefault();
-  zone.classList.remove('drag-over');
-  var file = e.dataTransfer.files[0];
-  if (file) handleFile(file);
+  e.preventDefault(); zone.classList.remove('drag-over');
+  if (e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
 });
-
-function handleFileInput(input) {
-  if (input.files[0]) handleFile(input.files[0]);
-}
+function handleFileInput(i) { if (i.files[0]) handleFile(i.files[0]); }
 
 async function handleFile(file) {
   setStatus('Reading PDF...');
-  showDebug('');
   try {
-    var arrayBuffer = await file.arrayBuffer();
-    var pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+    var ab = await file.arrayBuffer();
+    var pdf = await pdfjsLib.getDocument({ data: ab }).promise;
     var text = '';
     for (var i = 1; i <= pdf.numPages; i++) {
       var page = await pdf.getPage(i);
       var content = await page.getTextContent();
-      text += content.items.map(function(item) { return item.str; }).join(' ') + '\n';
+      text += content.items.map(function(it) { return it.str; }).join(' ') + '\n';
     }
     pdfText = text.trim();
-    if (!pdfText) {
-      setStatus('No text found — this PDF may be a scanned image. Try a text-based PDF.', true);
-      return;
-    }
-    document.getElementById('upload-label').innerHTML = '<strong>' + file.name + '</strong> — ' + pdf.numPages + ' page(s) loaded (' + pdfText.length + ' characters extracted)';
-    setStatus('PDF loaded successfully. Click Generate to create the email summary.');
-    checkReady();
+    if (!pdfText) { setStatus('No text found in this PDF — it may be a scanned image.', true); return; }
+    document.getElementById('upload-label').innerHTML = '<strong>' + file.name + '</strong> — ' + pdf.numPages + ' page(s) loaded';
+    setStatus('PDF loaded. Click Generate to build the email.');
+    document.getElementById('generate-btn').disabled = false;
   } catch(err) {
     setStatus('Could not read PDF: ' + err.message, true);
   }
-}
-
-function checkReady() {
-  var key = document.getElementById('api-key').value.trim();
-  document.getElementById('generate-btn').disabled = !(key && pdfText);
 }
 
 function setStatus(msg, isError) {
@@ -193,113 +160,386 @@ function setStatus(msg, isError) {
   el.className = 'status' + (isError ? ' error' : '');
 }
 
-function showDebug(msg) {
-  var el = document.getElementById('debug-box');
-  if (msg) { el.textContent = msg; el.classList.add('visible'); }
-  else { el.textContent = ''; el.classList.remove('visible'); }
+// ─── Helpers ───────────────────────────────────────────────
+function find(text, patterns) {
+  for (var i = 0; i < patterns.length; i++) {
+    var m = text.match(patterns[i]);
+    if (m) return m[1] ? m[1].trim() : m[0].trim();
+  }
+  return null;
 }
 
-async function generateSummary() {
-  var apiKey = document.getElementById('api-key').value.trim();
-  var customerNameOverride = document.getElementById('customer-name').value.trim();
+function findAll(text, pattern) {
+  var results = [], m;
+  var re = new RegExp(pattern.source, 'gi');
+  while ((m = re.exec(text)) !== null) results.push(m);
+  return results;
+}
+
+function pad(str, len) {
+  str = String(str);
+  while (str.length < len) str += ' ';
+  return str;
+}
+
+// ─── Item descriptions dictionary ──────────────────────────
+// Matches keywords in the item name to a plain-English description
+var ITEM_DESCRIPTIONS = [
+  {
+    keys: ['interior door', 'door slab', 'door panel', 'door 2166', 'door 2168', 'door 2169', 'door 2170'],
+    desc: 'The main door panel(s) that fill your wall opening — the actual slab that swings open and closed.'
+  },
+  {
+    keys: ['frame'],
+    desc: 'The structural border installed into your wall opening that the door panels attach and close against, giving the doorway a clean built-in finish.'
+  },
+  {
+    keys: ['trim', 'casing', 'architrave'],
+    desc: 'Decorative molding strips that cover the gap between the door frame and your wall on both sides, for a polished finished look.'
+  },
+  {
+    keys: ['non-mortise hinge', 'non mortise hinge', 'hinge'],
+    desc: 'Hardware that connects each door panel to the frame so it swings open and closed. Non-mortise means they mount flat on the surface — no chiseling or cutting into the wood required.'
+  },
+  {
+    keys: ['dummy handle', 'dummy door handle'],
+    desc: 'Decorative door handles for grip that have no latch or lock inside — purely for appearance. The doors are held closed by the magnetic catches.'
+  },
+  {
+    keys: ['handle', 'lever', 'knob'],
+    desc: 'The door handle set used to open, close, and latch the door.'
+  },
+  {
+    keys: ['magnetic catch', 'magnet'],
+    desc: 'Small magnetic closures that snap each door panel firmly shut since these doors use dummy handles with no latch mechanism.'
+  },
+  {
+    keys: ['lock', 'deadbolt', 'lockset'],
+    desc: 'The locking mechanism that secures the door.'
+  },
+  {
+    keys: ['sweep', 'door sweep'],
+    desc: 'A seal attached to the bottom of the door that blocks drafts, dust, and light from coming in under the door.'
+  },
+  {
+    keys: ['weatherstrip', 'weather strip', 'seal'],
+    desc: 'Flexible sealing strips around the door frame that block drafts, moisture, and noise when the door is closed.'
+  },
+  {
+    keys: ['threshold'],
+    desc: 'The strip installed at the floor level of the doorway that seals the gap between the bottom of the door and the floor.'
+  },
+  {
+    keys: ['closer', 'door closer'],
+    desc: 'A mechanical device that automatically pulls the door shut after it is opened.'
+  },
+  {
+    keys: ['astragal'],
+    desc: 'A vertical molding strip that covers the gap between the two panels of a double door, improving the seal and appearance.'
+  },
+  {
+    keys: ['glass', 'lite', 'sidelight'],
+    desc: 'Glass panel(s) that allow natural light to pass through the door.'
+  },
+  {
+    keys: ['kick plate'],
+    desc: 'A protective metal plate on the lower portion of the door that guards against scuffs and damage from feet.'
+  },
+  {
+    keys: ['screen'],
+    desc: 'A mesh screen panel that allows airflow while keeping insects out.'
+  },
+  {
+    keys: ['stop', 'door stop'],
+    desc: 'A small device that prevents the door from swinging too far open and damaging the wall.'
+  },
+  {
+    keys: ['bolt', 'flush bolt'],
+    desc: 'A bolt that slides into the floor or top frame to lock one panel of a double door in place.'
+  },
+  {
+    keys: ['silicone', 'caulk', 'sealant'],
+    desc: 'Sealant used during installation to weatherproof the gaps around the door frame.'
+  }
+];
+
+function describeItem(name) {
+  var lower = name.toLowerCase();
+  for (var i = 0; i < ITEM_DESCRIPTIONS.length; i++) {
+    var entry = ITEM_DESCRIPTIONS[i];
+    for (var j = 0; j < entry.keys.length; j++) {
+      if (lower.indexOf(entry.keys[j]) !== -1) return entry.desc;
+    }
+  }
+  return null;
+}
+
+// ─── Main parser ───────────────────────────────────────────
+function parseInvoice(raw) {
+  var t = raw.replace(/\s+/g, ' '); // collapse whitespace for easier regex
+
+  // --- Order info ---
+  var invoiceNum = find(t, [/invoice#?\s*([A-Z0-9]+)/i, /inv\s*#?\s*([A-Z0-9]+)/i]);
+  var date       = find(t, [/date\s*[:\-]?\s*(\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/i, /(\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/]);
+  var dueDate    = find(t, [/due\s*date\s*[:\-]?\s*(\d{1,2}[\/-]\d{1,2}[\/-]\d{2,4})/i]);
+
+  // Customer name — grab what's after BILL TO or SHIP TO
+  var customerName = find(t, [/bill\s*to\s+([A-Z][a-z]+(?: [A-Z][a-z]+)+)/i, /ship\s*to\s+([A-Z][a-z]+(?: [A-Z][a-z]+)+)/i]);
+  var firstName = '';
+  if (customerName) firstName = customerName.split(' ')[0];
+
+  // Address — look after ship to name
+  var address = find(t, [/\d+\s+\w[\w\s]+,\s*\w[\w\s]+,\s*[A-Z]{2},?\s*\d{5}/i]);
+
+  // --- Door specs ---
+  // Dimensions like 42*84 or 42x84 or 42"x84"
+  var dimMatch = t.match(/(\d{2,3})\s*[xX\*×]\s*(\d{2,3})/);
+  var panelW = dimMatch ? dimMatch[1] : null;
+  var panelH = dimMatch ? dimMatch[2] : null;
+
+  // Recommended opening
+  var recOpening = find(t, [/recommended\s+opening[:\s]+([0-9\s\/'"x×X\*]+(?:x|×|X|\*)[0-9\s\/'"]+)/i]);
+
+  // Double door detection
+  var isDouble = /double\s*door|DD|2\s+of\s+\d/i.test(t);
+  var combinedW = (isDouble && panelW) ? (parseInt(panelW) * 2) + '"' : null;
+
+  // Style / model name — look for patterns like "Lucia 2166" or "Model XXXX"
+  var styleName = find(t, [/\b(lucia\s*\d+|porto\s*\d+|milano\s*\d+|venezia\s*\d+|roma\s*\d+|classic\s*\d+|modern\s*\d+|elegance\s*\d+|prestige\s*\d+)/i]);
+  if (!styleName) styleName = find(t, [/interior\s+door\s+(\w+\s*\d+)/i]);
+
+  // Color / finish
+  var finish = find(t, [/(white\s+silk|white\s+matte|black\s+matte|grey\s+silk|grey\s+matte|natural\s+oak|dark\s+oak|walnut|ebony|ivory|cream|charcoal|graphite)/i]);
+
+  // Glass
+  var hasGlass = /clear\s+glass|frosted\s+glass|tempered\s+glass|glass\s+panel|no\s+glass|without\s+glass/i.test(t);
+  var glassType = find(t, [/(clear\s+glass|frosted\s+glass|tempered\s+glass)/i]);
+  if (!hasGlass) glassType = 'None';
+
+  // Pre-drilled
+  var notPreDrilled = /not\s+pre.?drill|no\s+pre.?drill/i.test(t);
+  var lockPrep = notPreDrilled
+    ? 'Not pre-drilled — lock and handle boring to be done on-site during installation'
+    : 'Pre-drilled for standard hardware';
+
+  // --- Line items ---
+  // Strategy: split on newlines and look for lines with quantities
+  var lines = raw.split('\n');
+  var items = [];
+
+  // Pattern: line starts with "- " or contains qty patterns
+  // Also capture lines that look like "ItemName ... qty"
+  var itemPattern = /^[-\u2022]?\s*(.+?)\s{2,}(\d+)\s*$/;
+  var dashPattern = /^-\s+(.+)/;
+
+  for (var i = 0; i < lines.length; i++) {
+    var line = lines[i].trim();
+    if (!line || line.length < 3) continue;
+
+    // Skip header/footer lines
+    if (/invoice|bill to|ship to|subtotal|discount|shipping|tax|total|pricing for|terms|date|due|prepared|accepted|signature|unitedporte|bayonne|www\.|gmail/i.test(line)) continue;
+    if (/^\d+$/.test(line)) continue; // page numbers
+
+    // Lines starting with "- " are sub-items (components)
+    var dashM = line.match(dashPattern);
+    if (dashM) {
+      var name = dashM[1].trim();
+      // Strip SKU — anything that looks like all-caps+numbers code at end
+      name = name.replace(/\s+[A-Z0-9\-\.]{6,}\s*\d*\s*$/, '').trim();
+      // Get qty from end of line if present
+      var qtyM = line.match(/\s(\d+)\s*$/);
+      var qty = qtyM ? parseInt(qtyM[1]) : 1;
+      if (name.length > 3) items.push({ name: name, qty: qty });
+      continue;
+    }
+
+    // Lines with explicit qty at end
+    var m = line.match(itemPattern);
+    if (m) {
+      var name = m[1].replace(/[A-Z0-9\-\.]{8,}/g, '').trim(); // strip SKUs
+      var qty = parseInt(m[2]);
+      if (name.length > 3 && qty > 0 && qty < 1000) {
+        items.push({ name: name, qty: qty });
+      }
+    }
+  }
+
+  // Also scan for the main product line (qty=1 large item)
+  var mainItem = find(raw, [/(Lucia\s*\d+[^\n]+(?:door|DD)[^\n]+)/i, /([A-Z][a-z]+\s+\d+[^\n]+(?:door|doors)[^\n]+)/i]);
+
+  // --- Pricing ---
+  var subtotal = find(t, [/subtotal\s*[:\$]?\s*([\d,\s]+(?:\.\d{2})?)/i]);
+  var discount = find(t, [/discount[^:]*[:\$]?\s*-?\s*\$?([\d,\s]+(?:\.\d{2})?)/i]);
+  var discountPct = find(t, [/discount\s+([\d\.]+)%/i]);
+  var shipping  = find(t, [/(?:curbside\s+)?shipping[:\$]?\s*\$?([\d,\s]+(?:\.\d{2})?)/i]);
+  var tax       = find(t, [/tax[:\$]?\s*\$?([\d,\s]+(?:\.\d{2})?)/i]);
+  var total     = find(t, [/total[:\$]?\s*\$?([\d,\s]+(?:\.\d{2})?)/i]);
+
+  // Clean pricing values
+  function cleanPrice(v) {
+    if (!v) return null;
+    return v.replace(/\s/g, '').replace(/,/g, '');
+  }
+
+  return {
+    invoiceNum: invoiceNum || '[see invoice]',
+    date: date || '[see invoice]',
+    dueDate: dueDate || '[see invoice]',
+    customerName: customerName || '[Customer]',
+    firstName: firstName || 'Valued Customer',
+    address: address || '[see invoice]',
+    styleName: styleName || 'Lucia Series',
+    isDouble: isDouble,
+    panelW: panelW,
+    panelH: panelH,
+    combinedW: combinedW,
+    finish: finish || '[see invoice]',
+    glassType: glassType || (hasGlass ? 'Clear glass' : 'None'),
+    lockPrep: lockPrep,
+    recOpening: recOpening,
+    items: items,
+    pricing: {
+      subtotal:    cleanPrice(subtotal),
+      discount:    cleanPrice(discount),
+      discountPct: discountPct,
+      shipping:    cleanPrice(shipping),
+      tax:         cleanPrice(tax),
+      total:       cleanPrice(total)
+    }
+  };
+}
+
+// ─── Email builder ─────────────────────────────────────────
+function buildEmail(data, nameOverride) {
+  var firstName = nameOverride || data.firstName;
+  var HR = '\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500';
+  var lines = [];
+
+  // Greeting & intro
+  lines.push('Hi ' + firstName + ',');
+  lines.push('');
+  lines.push('Thank you for your order with United Porte. Please find your complete order summary below for your review. We kindly ask that you read through all of the details carefully and sign the attached invoice to confirm your agreement and authorize your order to move into production.');
+  lines.push('');
+
+  // Order summary
+  lines.push(HR);
+  lines.push('ORDER SUMMARY');
+  lines.push(HR);
+  lines.push('Customer:   ' + data.customerName);
+  lines.push('Ship to:    ' + data.address);
+  lines.push('Invoice #:  ' + data.invoiceNum);
+  lines.push('Date:       ' + data.date);
+  lines.push('Due:        ' + data.dueDate);
+  lines.push('');
+
+  // Door specs
+  lines.push(HR);
+  lines.push('DOOR SPECIFICATIONS');
+  lines.push(HR);
+  var doorType = data.isDouble ? 'Double Door Set' : 'Single Door';
+  lines.push('Style:             ' + (data.styleName || 'Lucia Series') + ' \u2014 ' + doorType);
+  if (data.panelW && data.panelH) {
+    lines.push('Each panel:        ' + data.panelW + '" wide \u00d7 ' + data.panelH + '" tall');
+  }
+  if (data.isDouble && data.combinedW) {
+    lines.push('Combined opening:  ' + data.combinedW + ' wide \u00d7 ' + (data.panelH || '') + '" tall');
+  }
+  lines.push('Finish / color:    ' + data.finish);
+  lines.push('Glass:             ' + data.glassType);
+  lines.push('Lock prep:         ' + data.lockPrep);
+  if (data.recOpening) {
+    lines.push('');
+    lines.push('Recommended rough opening: ' + data.recOpening);
+  }
+  lines.push('');
+
+  // Items
+  lines.push(HR);
+  lines.push('WHAT IS INCLUDED IN YOUR ORDER');
+  lines.push(HR);
+
+  if (data.items.length === 0) {
+    lines.push('Please refer to the attached invoice for the full list of included items.');
+  } else {
+    for (var i = 0; i < data.items.length; i++) {
+      var item = data.items[i];
+      lines.push('(' + item.qty + ') ' + item.name);
+      var desc = describeItem(item.name);
+      if (desc) lines.push('    ' + desc);
+      lines.push('');
+    }
+  }
+
+  // Important notes
+  lines.push(HR);
+  lines.push('IMPORTANT NOTES');
+  lines.push(HR);
+
+  var notes = [];
+  if (/not\s+pre.?drill/i.test(pdfText)) notes.push('These doors are NOT pre-drilled \u2014 any lock or handle boring must be completed on-site during installation.');
+  if (/dummy\s+(handle|knob)/i.test(pdfText)) notes.push('The handles included are dummy handles (decorative only) and do not have a latch or lock. Doors are held closed by the magnetic catches.');
+  if (/magnetic\s+catch/i.test(pdfText)) notes.push('Magnetic catches are included and are the mechanism that holds the door(s) closed.');
+  if (data.recOpening) notes.push('Please confirm your rough wall opening is at least ' + data.recOpening + ' before installation begins.');
+  if (/material\s+only|installation\s+by\s+others/i.test(pdfText)) notes.push('This order is for materials only \u2014 installation is not included and must be arranged separately.');
+  if (/no\s+cancel|no\s+refund|once\s+in\s+production/i.test(pdfText)) notes.push('No cancellations or refunds are accepted once the order has entered production.');
+  if (/48\s*hour/i.test(pdfText)) notes.push('Any claims regarding appearance, completeness, or condition of the product must be submitted in writing within 48 hours of delivery.');
+  if (/curbside/i.test(pdfText)) notes.push('Delivery is curbside only \u2014 please arrange for help moving items inside.');
+
+  if (notes.length === 0) notes.push('Please review the attached invoice carefully for any additional terms and conditions.');
+  for (var n = 0; n < notes.length; n++) lines.push('\u2022 ' + notes[n]);
+  lines.push('');
+
+  // Pricing
+  lines.push(HR);
+  lines.push('PRICING');
+  lines.push(HR);
+  var p = data.pricing;
+  if (p.subtotal)  lines.push(pad('Subtotal:', 30) + '$' + p.subtotal);
+  if (p.discount)  lines.push(pad('Discount' + (p.discountPct ? ' (' + p.discountPct + '%):' : ':'), 30) + '-$' + p.discount);
+  if (p.shipping)  lines.push(pad('Curbside shipping:', 30) + '$' + p.shipping);
+  if (p.tax)       lines.push(pad('Tax:', 30) + '$' + p.tax);
+  lines.push(pad('TOTAL:', 30) + (p.total ? '$' + p.total : '[see invoice]'));
+  lines.push('');
+  lines.push(HR);
+  lines.push('');
+
+  // Closing
+  lines.push('To confirm your order and authorize us to move into production, please sign and return the attached invoice at your earliest convenience. Should you have any questions or require clarification on any item listed above, please do not hesitate to reach out to us before signing \u2014 we are happy to help.');
+  lines.push('');
+  lines.push('Thank you for choosing United Porte. We look forward to delivering a product you will love.');
+  lines.push('');
+  lines.push('Warm regards,');
+  lines.push('');
+  lines.push('United Porte Inc');
+  lines.push('8 New Hook Rd, Bayonne, NJ 07002');
+  lines.push('+1 (332) 777-7005');
+  lines.push('unitedporte@gmail.com');
+  lines.push('www.unitedporte.us');
+
+  return lines.join('\n');
+}
+
+// ─── Generate ──────────────────────────────────────────────
+function generateSummary() {
   var btn = document.getElementById('generate-btn');
+  var nameOverride = document.getElementById('customer-name').value.trim();
   var output = document.getElementById('email-output');
   var card = document.getElementById('output-card');
 
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span>Generating...';
-  card.classList.remove('visible');
-  output.textContent = '';
-  emailText = '';
-  showDebug('');
-
-  var customerHint = customerNameOverride
-    ? 'The customer first name to use in the greeting is: ' + customerNameOverride
-    : 'Find the customer first name from the invoice. If unclear, use "Valued Customer".';
-
-  var systemPrompt = 'You are a professional order confirmation email writer for United Porte Inc, a door supply company based in Bayonne NJ. You translate technical door invoices into clear, warm, professional customer emails. Output plain text only — no markdown, no asterisks, no pound signs. Use ALL CAPS and dash lines for section headers.';
-
-  var userPrompt = 'Write a complete ready-to-send customer order confirmation email based on the invoice below.\n\n' + customerHint + '\n\nUse this exact structure:\n\nHi [First Name],\n\n[2-3 sentence warm professional opening. Tell them their order summary is below. Ask them to review carefully and sign the attached invoice to authorize production. Do not say "I hope this email finds you well".]\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nORDER SUMMARY\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nCustomer:   [full name]\nShip to:    [address]\nInvoice #:  [number]\nDate:       [date]\nDue:        [due date]\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nDOOR SPECIFICATIONS\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nStyle:            [style and door type]\nEach panel:       [width x height]\nCombined opening: [total if double door]\nFinish / color:   [finish]\nGlass:            [glass type or None]\nLock prep:        [pre-drilled / not pre-drilled with brief note]\n\nRecommended rough opening: [dimensions]\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nWHAT IS INCLUDED IN YOUR ORDER\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n[For each line item:]\n(qty) Item name\n    One sentence plain English description of what it is and what it does. Write for a homeowner with no door knowledge.\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nIMPORTANT NOTES\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n[dot bullet for each note, one sentence each]\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nPRICING\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n[all pricing line items]\nTOTAL:  [amount]\n\n\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n\nTo confirm your order and authorize us to move into production, please sign and return the attached invoice at your earliest convenience. If you have any questions about any item listed above, do not hesitate to reach out before signing.\n\nThank you for choosing United Porte. We look forward to delivering a product you will love.\n\nWarm regards,\n\nUnited Porte Inc\n8 New Hook Rd, Bayonne, NJ 07002\n+1 (332) 777-7005\nunitedporte@gmail.com\nwww.unitedporte.us\n\n---\nINVOICE TEXT:\n' + pdfText;
+  setStatus('Parsing invoice...');
 
   try {
-    setStatus('Connecting to Anthropic API...');
-
-    var requestBody = {
-      model: 'claude-sonnet-4-20250514',
-      max_tokens: 2000,
-      stream: true,
-      system: systemPrompt,
-      messages: [{ role: 'user', content: userPrompt }]
-    };
-
-    var response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true'
-      },
-      body: JSON.stringify(requestBody)
-    });
-
-    if (!response.ok) {
-      var errText = await response.text();
-      var errMsg = 'API returned status ' + response.status;
-      try {
-        var errJson = JSON.parse(errText);
-        errMsg = errJson.error ? errJson.error.message : errMsg;
-      } catch(e) {}
-      throw new Error(errMsg);
-    }
-
-    setStatus('Writing your email...');
-    card.classList.add('visible');
-
-    var reader = response.body.getReader();
-    var decoder = new TextDecoder();
-    var result = '';
-
-    while (true) {
-      var read = await reader.read();
-      if (read.done) break;
-      var chunk = decoder.decode(read.value, { stream: true });
-      var lines = chunk.split('\n');
-      for (var i = 0; i < lines.length; i++) {
-        var line = lines[i];
-        if (line.indexOf('data: ') !== 0) continue;
-        var data = line.slice(6).trim();
-        if (!data || data === '[DONE]') continue;
-        try {
-          var parsed = JSON.parse(data);
-          if (parsed.type === 'content_block_delta' && parsed.delta && parsed.delta.type === 'text_delta') {
-            result += parsed.delta.text;
-            output.textContent = result;
-          }
-        } catch(e) {}
-      }
-    }
-
-    emailText = result.trim();
+    var data = parseInvoice(pdfText);
+    emailText = buildEmail(data, nameOverride);
     output.textContent = emailText;
-    setStatus('Email ready — copy and paste into your email client.');
-
+    card.classList.add('visible');
+    setStatus('Email ready \u2014 copy and paste into your email client.');
   } catch(err) {
-    setStatus('Error: ' + err.message, true);
-    showDebug(
-      'Error: ' + err.message + '\n\n' +
-      'Things to check:\n' +
-      '1. API key starts with sk-ant- and has available credits\n' +
-      '2. PDF was loaded — extracted text length: ' + pdfText.length + ' chars\n' +
-      '3. You are accessing this page via https:// (not file://)\n\n' +
-      'If the error says "403" or "CORS", make sure you are on a hosted page (GitHub Pages), not opening the file directly from your computer.'
-    );
-    card.classList.remove('visible');
+    setStatus('Could not parse invoice: ' + err.message, true);
   }
 
   btn.disabled = false;
-  btn.innerHTML = 'Generate Email Summary';
-  checkReady();
 }
 
 function copyEmail() {
